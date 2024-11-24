@@ -1,0 +1,18 @@
+
+1. If using pyenv, type the following into the CMD Prompt to activate the version of Python that you want (in this case 3.12.5)
+
+    pyenv local 3.12.5
+
+1. Alternatively in VS Code type CTRL + SHIFT + P 
+    Click or type 'Python: Create Environment'
+
+    or, in CMD prompt use:   pyenv exec python -m venv .venv
+
+
+2. Then select in VS Code type CTRL + SHIFT + P
+    Click or type 'Select Interpreter' and select Python 3.12.5 (or whatever other version you have chosen to use)
+
+
+3. Activate the virtual environment:
+    Click the down-arrow next to the '+' sysmbol in the terminal, then select 'Command Prompt'
+    This will open a new terminal and will automatically run the script using the .venv folder

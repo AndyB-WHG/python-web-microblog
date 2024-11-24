@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroBlog</title>
+    <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar__brand">
+            <img src="/static/logo.svg" alt="Microblog logo" class="navbar__logo"/>Microblog
+        </div>
+        <ul class="navbar__navigation">
+            <li class="navbar__navigation-item">
+                <a href="#" class="navbar__link">Recent</a>
+            </li>
+            <li class="navbar__navigation-item">
+                <a href="#" class="navbar__link">Calendar</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <section>
+            <h1>Add new entry</h1>
+            <form class="form" action="/" method="POST">
+                <p class="form__input">
+                    <label class="form__label" for="entry">Entry contents</label>
+                    <textarea class="form__textarea" name="content" id="entry"></textarea>
+                </p>
+                <button class="form__submit" type="submit">Add entry</button>
+            </form>
+        </section>
+        <section>
+            <h1>Recent posts</h1>
+            {% for entry in entries %}
+            <article class="entry">
+                <div>
+                    <h2 class="entry__title">{{ entry[0] | truncate(30, true) }}</h2>
+                    <time class="entry__date" datetime="{{ entry[1] }}">• {{ entry[2] }}</time>
+                </div>
+                <p class="entry__content">
+                    {{ entry[0] }}
+                   
+                    {# 
+
+                    Note: Entry[0] and Entry[1] are the first and second parts of the 'Entry':
+                    Entry[0] = 'Text content' 
+                    Entry[1] = 'Date' 
+                    Entry[2] = 'Reformatted date as day & month.  eg 17 Nov  
+
+                    These are taken from the 'Entries with date' tuple in app.py
+                    
+                    #}
+                
+                </p>
+            </article>
+            {% endfor %}
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer__content">
+            <section class="left">
+                <a href="" class="footer__item">Made by Andy Bond</a>
+                <a href="" class="footer__item">Check out my other projects</a>
+            </section>
+            <section class="right">
+                <div class="footer__column">
+                    <a href="" class="footer__item">Recent</a>
+                    <a href="" class="footer__item">Calendar</a>
+                </div>
+                <div class="footer__column"></div>
+                    <a href="" class="footer__item">About</a>
+                    <a href="" class="footer__item">How this was made</a>
+                </div>
+            </section>
+        </div>
+
+    </footer>
+</body>
+</html>
